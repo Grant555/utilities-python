@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../BlogSpider/.idea/BlogSpider.iml" filepath="$PROJECT_DIR$/../BlogSpider/.idea/BlogSpider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MSpider_V3/.idea/MSpider_V3.iml" filepath="$PROJECT_DIR$/../MSpider_V3/.idea/MSpider_V3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Requests_Demo/.idea/Requests_Demo.iml" filepath="$PROJECT_DIR$/../Requests_Demo/.idea/Requests_Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/VBirdSpider.iml" filepath="$PROJECT_DIR$/.idea/VBirdSpider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../home-page-editor/.idea/home-page-editor.iml" filepath="$PROJECT_DIR$/../home-page-editor/.idea/home-page-editor.iml" />
+    </modules>
+  </component>
+</project>
