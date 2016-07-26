@@ -22,27 +22,54 @@ import shutil
 """
 
 
+class Word(object):
+    def __init__(self, word):
+        self._word = word.capitalize()
+        self._lines = list()
+
+    @property
+    def word(self):
+        return self._word
+
+    def append(self, line):
+        self._lines.append(line)
+
+    def __str__(self):
+        lines = ''
+
+        for line in self._lines:
+            lines += '    - {}\n'.format(line)
+
+        return '1. **{}**\n'.format(self._word) + lines
+
+
+word = None
+
+
 def process_words(filename):
+    global word
+    words = list()
+
     with open(filename, 'r') as inf, open('tmp', 'w') as of:
         for line in inf:
+            line = line.strip()
             if line.startswith('1.'):
+                line = line.replace('**', '')
                 # 提取单词或短语
-                word = line.replace('1.', '').strip().capitalize()
-                if word.startswith('**'):
-                    word = '1. {}'.format(word)
-                else:
-                    word = '1. **{}**'.format(word)
-                print(word, file=of)
+                word = Word(line.replace('1.', '').strip())
+            elif line != '':
+                line = line.replace('-', '')
+                word.append(line.strip())
             else:
-                # 第一种情况是已经处理过的了，即含有缩进和 `-`
-                if line.strip().startswith('-'):
-                    # 原样写
-                    print(line.rstrip(), file=of)
-                elif line.strip() != '':
-                    # 添加 `-` 再写回
-                    print('    - {}'.format(line.strip()), file=of)
-                else:
-                    print('', file=of)
+                words.append(word)
+
+    # 排序
+    words.sort(key=lambda x: x.word)
+
+    # 写入文件
+    with open('tmp', 'w') as of:
+        for word in words:
+            print(word, file=of)
 
     # 完成后替换原来的文件
     shutil.move('tmp', filename)
