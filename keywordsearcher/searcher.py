@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # -*-coding: utf-8-*-
 # Author : Chris
 # Blog   : http://blog.chriscabin.com
@@ -114,7 +114,6 @@ class Searcher(Frame):
 
 def main():
     root = Tk()
-    print(families(root))
     Searcher(root)
     root.mainloop()
 
