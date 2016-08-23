@@ -9,17 +9,17 @@
 # Description: A very simple python script that can sort items alphabetically.
 
 import os
-import pickle
 import shutil
 import re
+import pickle
 
 
-README_FILE = 'eng.md'
+README_FILE = 'cn.md'
 TEMP_FILE = 'temp.md'
 
 # only works for those items between BEGIN and END.
-BEGIN = '## Applications'
-END = '## Setup'
+BEGIN = '## 应用程序'
+END = '## 配置'
 
 
 def main():
@@ -79,10 +79,11 @@ def main():
 
     print('Replace the original file: README.md')
 
-    # shutil.move(TEMP_FILE, README_FILE)
     print(len(all_apps))
-    with open('eng_apps.pk', 'wb') as f:
+    with open('cn_apps.pk', 'wb') as f:
         pickle.dump(all_apps, f)
+    # shutil.move(TEMP_FILE, README_FILE)
+
 
 if __name__ == '__main__':
     main()
